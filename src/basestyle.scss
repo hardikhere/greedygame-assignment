@@ -1,0 +1,16 @@
+.flex {
+  display: flex;
+  &-row {
+    flex-direction: row;
+  }
+  &-col {
+    flex-direction: column;
+  }
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.text-white {
+  color: white;
+}
