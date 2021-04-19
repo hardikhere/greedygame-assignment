@@ -36,6 +36,7 @@ const Home = () => {
                     {
                         !loading && appsData.map(app => {
                             return <AppCard info={app} />
+
                         })
                     }
                 </div>

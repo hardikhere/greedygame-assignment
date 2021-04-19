@@ -5,7 +5,7 @@ import arrowRight from "../../assets/arrow-right-solid.svg";
 const AppCard = (props) => {
     const history = useHistory();
     return (
-        <div className="card flex flex-col">
+        <div className="card flex flex-col" key={props.id + "app"}>
             <div className="flex card-head" onClick={
                 () => history.push({
                     pathname: `/app/${props.info.id}`,
@@ -21,7 +21,7 @@ const AppCard = (props) => {
                 </div>
                 <div>
                     <img className="rightarrow"
-                        src={arrowRight} style={{ height: "2rem" }} alt="" srcset="" />
+                        src={arrowRight} style={{ height: "2rem" }} alt="" />
                 </div>
             </div>
 

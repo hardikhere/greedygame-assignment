@@ -12,28 +12,28 @@ const HomeLeftComponent = () => {
             <div className="left-top">
                 <AdsoulHeader />
                 <center>
-                    <img src={asset1} style={{ height: "12rem" }} alt="" srcset="" />
+                    <img src={asset1} style={{ height: "12rem" }} alt="" />
                 </center>
             </div>
             <div className="left-bottom text-white">
                 <h2>Revenue Optimization</h2>
                 <div className="flex flex-wrap iconsbox">
                     <div className="iconitem">
-                        <img src={fillRateIcon} alt="" srcset="" />
+                        <img src={fillRateIcon} alt="" />
                         <p>Fill Rate</p>
                     </div>
                     <div className="iconitem">
-                        <img src={ctrIcon} alt="" srcset="" />
+                        <img src={ctrIcon} alt="" />
                         <p>Improve CTR</p>
                     </div>
 
                     <div className="iconitem">
-                        <img src={refreshIcon} alt="" srcset="" />
+                        <img src={refreshIcon} alt="" />
                         <p>Improve Refresh Rate</p>
                     </div>
 
                     <div className="iconitem">
-                        <img src={quickIntegrationIcon} alt="" srcset="" />
+                        <img src={quickIntegrationIcon} alt="" />
                         <p>Quick Integration</p>
                     </div>
                 </div>

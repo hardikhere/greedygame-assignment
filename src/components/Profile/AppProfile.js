@@ -52,7 +52,7 @@ const AppProfile = () => {
                         () => history.push("/")
                     }>
                         <img className="leftarrow"
-                            src={leftArrow} style={{ height: "2rem" }} alt="" srcset="" />
+                            src={leftArrow} style={{ height: "2rem" }} alt="" />
                     </div>
                     <div className="card-logo"></div>
                     <div style={{ marginLeft: "0.7rem" }}>
