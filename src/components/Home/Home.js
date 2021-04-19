@@ -1,64 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.scss";
-import asset1 from "../../assets/asset1.svg"
-import fillRateIcon from "../../assets/icon1.svg"
-import ctrIcon from "../../assets/icon2.svg"
-import refreshIcon from "../../assets/icon3.svg"
-import quickIntegrationIcon from "../../assets/icon4.svg"
+
+import HomeLeftComponent from './HomeLeftComponent';
+import axios from 'axios';
+import { APIS } from '../../utils/endpoints';
+import AppCard from './AppCard';
 
 
 const Home = () => {
+    const [appsData, setappsData] = useState([]);
+    const [loading, setloading] = useState(false);
+    useEffect(() => {
+        const getApps = async () => {
+            setloading(true);
+            axios.get(APIS._getApps)
+                .then(res => {
+                    console.log(res);
+                    setappsData(res.data);
+                    setloading(false)
+                })
+        };
+        getApps();
+    }, []);
     return (
         <div className="container">
-            <div className="left-container flex flex-col">
-                <div className="left-top">
-                    <div className="heading">adsoul</div>
-                    <center>
-                        <img src={asset1} alt="" srcset="" />
-                    </center>
-                </div>
-                <div className="left-bottom text-white">
-                    <h2>Revenue Optimization</h2>
-                    <div className="flex flex-wrap iconsbox">
-                        <div className="iconitem">
-                            <img src={fillRateIcon} alt="" srcset="" />
-                            <p>Fill Rate</p>
-                        </div>
-                        <div className="iconitem">
-                            <img src={ctrIcon} alt="" srcset="" />
-                            <p>Improve CTR</p>
-                        </div>
-
-                        <div className="iconitem">
-                            <img src={refreshIcon} alt="" srcset="" />
-                            <p>Improve Refresh Rate</p>
-                        </div>
-
-                        <div className="iconitem">
-                            <img src={quickIntegrationIcon} alt="" srcset="" />
-                            <p>Quick Integration</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <HomeLeftComponent />
             <div className="left-fakecontainer"></div>
             <div className="right-container">
                 <div className="right-top">
                     <h1>Apps</h1>
                 </div>
                 <div className="right-fake-top"></div>
+                <div className="right-bg"></div>
                 <div className="right-bottom flex">
-                    <div className="app-card">
-
-                    </div>
-
-                    <div className="app-card">
-
-                    </div>
-
-                    <div className="app-card">
-
-                    </div>
+                    {
+                        !loading && appsData.map(app => {
+                            return <AppCard info={app} />
+                        })
+                    }
                 </div>
             </div>
         </div>

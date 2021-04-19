@@ -1,0 +1,48 @@
+.name-area {
+  margin: 3.4%;
+  width: fit-content;
+  &:hover{
+    .leftarrow{
+      padding-left: 0px;
+    }
+  }
+}
+
+.table-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+  overflow-x: auto;
+}
+
+#stats-table td {
+  padding: 1rem;
+}
+
+#stats-table th {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-right: 1rem;
+  padding-left: 0;
+}
+table {
+  width: 80%;
+  border-collapse: collapse;
+  border: solid lightgray;
+  border-width: 0.5px;
+  border-radius: 15px;
+}
+
+#stats-table tr {
+  border-top: solid lightgray;
+  border-width: 0.5px;
+  &:hover {
+    background-color: whitesmoke;
+  }
+}
+
+.leftarrow {
+  transition: all 0.4s ease;
+  padding-left: 15px;
+}

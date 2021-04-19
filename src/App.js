@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './basestyle.scss';
-import Home from './components/Home/Home';
+import Routes from './Routes';
 
 function App() {
   return (
     <div className="">
-      <Home />
+      <Routes />
     </div>
   );
 }

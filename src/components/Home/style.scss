@@ -1,8 +1,15 @@
+@import "../../mediaBreakpoints.scss";
+
 .container {
   display: flex;
   width: 100%;
+  @include responsive(phone) {
+    flex-direction: column;
+  }
 }
-
+.headerColor {
+  background-color: #6f76ff;
+}
 .left {
   &-container {
     position: fixed;
@@ -10,6 +17,13 @@
     top: 0;
     left: 0;
     width: 40%;
+    @include responsive(phone) {
+      position: relative;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+    }
   }
   &-fakecontainer {
     width: 40%;
@@ -22,6 +36,9 @@
     background-color: #6643fc;
     height: 50%;
     padding: 5%;
+    @include responsive(phone) {
+      display: none;
+    }
   }
 }
 
@@ -30,6 +47,10 @@
     width: 60%;
     position: relative;
     height: 100vh;
+    @include responsive(phone) {
+      width: 100%;
+      height: auto;
+    }
   }
   &-top {
     font-weight: lighter;
@@ -42,9 +63,15 @@
     width: 100%;
     background-color: white;
     position: fixed;
+    @include responsive(phone) {
+      position: relative;
+    }
   }
   &-fake-top {
     height: 5rem;
+    @include responsive(phone) {
+      display: none;
+    }
   }
   &-bottom {
     display: flex;
@@ -52,6 +79,14 @@
     flex-wrap: wrap;
     height: 100%;
     width: 100%;
+  }
+  &-bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
     background-color: whitesmoke;
   }
 }
@@ -60,8 +95,9 @@
   text-transform: uppercase;
   font-weight: bold;
   color: white;
-  margin-top: 2rem;
-  margin-left: 1rem;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
 }
 .iconitem {
   width: 50%;
@@ -72,15 +108,54 @@
 .iconsbox {
   height: 100%;
 }
+.rightarrow {
+  transition: all 0.4s ease;
+  margin-left: 0px;
+}
 
-.app-card {
+.card {
   background-color: white;
   padding: 4%;
   width: 80%;
-  height: 8rem;
+  height: auto;
   border-radius: 10px;
   border: solid lightgray;
   border-width: 1px;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  &-head {
+    height: 40%;
+    width: 100%;
+    cursor: pointer;
+    &:hover {
+      .rightarrow {
+        margin-left: 15px;
+      }
+    }
+  }
+  &-logo {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: antiquewhite;
+  }
+  &-details {
+    height: 100%;
+    display: flex;
+    padding: 1%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1%;
+    @include responsive(phone) {
+      margin-top: 3%;
+    }
+    &-item {
+      margin: 0.3rem;
+      margin-right: 5%;
+      @include responsive(phone) {
+        margin-right: 3%;
+      }
+    }
+  }
 }
