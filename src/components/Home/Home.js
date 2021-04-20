@@ -16,7 +16,9 @@ const Home = () => {
             axios.get(APIS._getApps)
                 .then(res => {
                     console.log(res);
-                    setappsData(res.data);
+                    if (res.data instanceof Array)
+                        setappsData(res.data);
+                    else setappsData([])
                     setloading(false)
                 })
         };
@@ -34,10 +36,15 @@ const Home = () => {
                 <div className="right-bg"></div>
                 <div className="right-bottom flex">
                     {
-                        !loading && appsData.map(app => {
+                        !loading && appsData?.map(app => {
                             return <AppCard info={app} />
 
                         })
+                    }
+                    {
+                        !loading && appsData.length === 0 && <h3>
+                            No apps Available
+                        </h3>
                     }
                 </div>
             </div>
